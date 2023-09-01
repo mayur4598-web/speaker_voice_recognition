@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voice Recorder with Automated Activation and Waveform Visualization</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #000;
+  }
+  .chunk {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    font-size: 14px;
+  }
+  audio {
+    margin-right: 10px;
+    background-color: white;
+  }
+  #displayString{
+    margin:2rem;
+    color: aliceblue;
+  }
+  canvas {
+    width: 100%;
+    height: 100px;
+  }
+  .chunk-download-link {
+  display: block;
+  margin: 5px;
+}
+#waveformCanvas {
+  background-color: rgba(0, 0, 0, 0); /* Set the background color */
+  width: 100%; /* Adjust the width */
+  height: 100%; /* Adjust the height */
+  transform: scaleY(-1);
+}
+@keyframes pulsate {
+  from {
+    stroke-width: 2px;
+  }
+  to {
+    stroke-width: 5px;
+  }
+}
+#image{
+    height:100% ;
+    width: 50px;
+    visibility: hidden;
+}
+
+</style>
+</head>
+<body>
+    <img id="image" src="./images/recordWhite.png">
+<div class="chunk" id="waveformContainer">
+  <canvas id="waveformCanvas" width="800" height="200"></canvas>
+</div>
+<div id="displayString">Say "Hello" to start recording...</div>
+<audio id="audioPlayer" controls></audio>
+<div id="downloadLinks"></div>
+
+<script src="./script.js"></script>
+</body>
+</html>
